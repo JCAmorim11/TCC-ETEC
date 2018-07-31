@@ -1,0 +1,33 @@
+﻿$(document).ready(function() {
+
+    var fontSize = 9.6;
+    var lineHeight = 14;
+
+    $("#fontResizeMais").click(function() {
+        if (fontSize < 12) {
+            fontSize++;
+            lineHeight++;
+            $("#pageContent").css({ 'font-size': fontSize + 'px',
+                                    'line-height': lineHeight + 'px'
+                                 });
+			$("iframe:eq(0)").contents().find("#areaBusca").css({ 'font-size': fontSize + 'px',
+                                    'line-height': lineHeight + 'px'
+                                 });
+        }
+    })
+
+    $("#fontResizeMenos").click(function() {
+        if (fontSize > 8.6) {
+            fontSize--;
+            lineHeight--;
+            $("#pageContent").css({ 'font-size': fontSize + 'px',
+                                    'line-height': lineHeight + 'px'
+                                  });
+			$("iframe:eq(0)").contents().find("#areaBusca").css({ 'font-size': fontSize + 'px',
+                                    'line-height': lineHeight + 'px'
+                                  });
+        }
+    })
+	
+	$("#frm").contents().find("#areaBusca")
+})

@@ -1,0 +1,7 @@
+* {text-indent:0 !important; color:#000}
+#mnuProcuraHeader {display:none !important}
+#areaMnu {display:none !important}
+#logoSptransFooter {display:none !important}
+#footer ul {display:none !important}
+
+dt, h1, h2, h3, h4, h5, h6 {font-size:15px !important; font-weight:bold}

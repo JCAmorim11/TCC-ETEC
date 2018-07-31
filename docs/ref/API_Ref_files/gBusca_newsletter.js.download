@@ -1,0 +1,36 @@
+
+
+function searchKey(type)
+{
+
+	$(window).keydown(function(event){
+		
+		if(event.keyCode==13) search(type);
+	})
+
+}
+
+function search(type)
+{
+    var url;    
+	var googleSearchControl = "002616877345199757063:vxt7ecb7s-c";
+    url = "/informativos/busca/?cx=" + googleSearchControl
+	url += "&cof=FORID:11"
+	url += "&ie=latin-1"; 
+
+	if(type=="pagina")
+	{
+		url += "&buscaNews=1&q=" + $.URLEncode($('#busca_newsletter').val()); 
+	}
+	else
+	{	
+		var googleSearchControl = "002616877345199757063:vxt7ecb7s-c";
+		url = "/busca/?cx=" + googleSearchControl
+		url += "&cof=FORID:11"
+		url += "&ie=latin-1"; 
+		url += "&q=" + $.URLEncode($('#busca').val()); 
+	}
+	
+	url += "&sa=Pesquisar"; 
+	location = url;
+}

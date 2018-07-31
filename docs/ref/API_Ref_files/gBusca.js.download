@@ -1,0 +1,32 @@
+
+
+function searchKey(type)
+{
+
+	$(window).keydown(function(event){
+		
+		if(event.keyCode==13) search(type);
+	})
+
+}
+
+function search(type)
+{
+    var url;
+    var googleSearchControl = "002616877345199757063:8amixfwkns4"; //010684791002312524542:o-svitya-9i
+    url = "/busca/?cx=" + googleSearchControl
+	url += "&cof=FORID:11"
+	url += "&ie=latin-1"; 
+
+	if(type=="pagina")
+	{
+		url += "&q=" + $.URLEncode($('#buscaFrm').val()); 
+	}
+	else
+	{
+		url += "&q=" + $.URLEncode($('#busca').val()); 
+	}
+	
+	url += "&sa=Pesquisar"; 
+	location = url;
+}

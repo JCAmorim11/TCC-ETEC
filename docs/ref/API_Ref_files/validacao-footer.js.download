@@ -1,0 +1,50 @@
+﻿function validaAjanela() {
+    var i = 0;
+	
+    if ($("input[name='nomeNews']")[0].value == '') {
+        i++;
+        $("input[name='nomeNews']").addClass('erro');
+    } else {
+        $("input[name='nomeNews']").removeClass('erro');
+    }
+
+    parte1 = $("input[name='emailNews']")[0].value.indexOf("@");
+    parte2 = $("input[name='emailNews']")[0].value.indexOf(".");
+    parte3 = $("input[name='emailNews']")[0].value.length;
+    if (!(parte1 >= 3 && parte2 >= 6 && parte3 >= 9)) {
+        i++;
+        $("input[name='emailNews']").addClass('erro');
+    } else {
+        $("input[name='emailNews']").removeClass('erro');
+    }
+
+    if (i != 0) {
+        return false;
+    } else {
+        return true
+    }
+}
+
+function validaConcessionarios() {
+    var i = 0;
+
+    if ($("input[name='login']")[0].value == '') {
+        i++;
+        $("input[name='login']").addClass('erro');
+    } else {
+        $("input[name='login']").removeClass('erro');
+    }
+
+    if ($("input[name='emailNews']")[0].value == '') {
+        i++;
+        $("input[name='psw']").addClass('erro');
+    } else {
+        $("input[name='psw']").removeClass('erro');
+    }
+
+    if (i != 0) {
+        return false;
+    } else {
+        return true
+    }
+}

@@ -1,0 +1,98 @@
+/* CSS Document */
+
+body, html { width: 100%; }
+
+#body { width: 1000px; margin: auto; position: relative; }
+
+.clear { clear: both; height:auto!important; text-indent:-1000px!important; overflow:hidden!important; display:block!important; width: auto!important; padding: 0!important; margin: 0!important; background-color: inherit!important; }
+.input {border-color:#ABADB3; border-style:solid none none; border-width:1px 0 0;}
+
+#areaMnu {font-size:110% !important; line-height:14px}
+
+a[href]:hover {text-decoration:underline}
+#headerContent {width:999px; height:40px; position:relative; display:block; overflow:hidden; }
+#headerContent h1 {
+	color: #b3b3b3;
+    display: block;
+    height: 28px;
+    padding-top: 12px;
+    width: 79%;
+	float:left; 
+}
+#headerContent h1 a {color:#b3b3b3; text-decoration:none; display: inline!important; text-align: left!important; }
+#headerContent h1 a:hover {text-decoration:underline}
+
+#headerContent #printPage, 
+#headerContent .fontResize { display: inline; overflow:hidden; text-align:left; position:absolute}
+
+/*#printPage 
+       {
+	     width: 75px; 
+		 height: 2.3em; 
+		 background: url(/img/button/imprimir.gif) no-repeat; 
+		  margin-top: -17px;
+		 right:20px; 
+		 text-indent: -5000em; 
+    }*/
+	
+/*#redes_header{
+    display: block;
+    height: 28px;
+    padding-top: 12px;
+    width: 45%;
+	float:right;
+}*/
+	
+
+				
+				
+#pageNovidades {margin-top:1.4em}
+
+#botaoTwitter 
+	{	
+        z-index: 999;
+        right: 55px;
+        position: absolute;
+        margin-top: 15px;
+		
+    }
+
+#btn
+{    z-index: 999;
+    right: 130px;
+    position: absolute;
+    margin-top: 15px;
+	
+}	
+
+.fb_iframe_widget {
+  z-index: 998;
+  margin-top: -25px;
+  margin-left: 570px;
+  float: left;	
+		}
+	
+	
+
+#fontResizeMais {width:13px ; height: 1.4em; top:.9em; right:27px}
+#fontResizeMenos {width:8px ; height: 1.4em; top:.9em; right:20px}
+
+#pageNovidades {clear:both; margin-top:0 !important}
+#novidadesContent .clear {background:none !important}
+
+
+#navegacao { width:330px; text-align: center; height: 30px; border: 0px solid #F00; margin: 10px auto 10px auto;  }
+#navegacao p { margin-right:5px; float: left; }
+#navegacao p a {height:1.8em; width: 0.8em; padding:.2em 6px 0 6px; border-width:0 0; border-color:#cfcfcf; border-style:solid; text-align:center; display:block; background:#7F7A7A; overflow:hidden; color:#fff; text-decoration:none; }
+#navegacao p a:hover,
+#navegacao p a.ativo {border-width:0 0; border-color:#e47878; border-style:solid; background:#cc0000; }
+#navegacao .more {background:none; border:none; padding:.3em 0 0 0; color:#999999; text-decoration: none; float: left; margin: 0 3px 0 3px;}
+#navegacao #navProxima,
+#navegacao #navAnterior {height:2.2em; text-indent:-1000px; overflow:hidden; display: inline-block;  border:0}
+#navegacao #navProxima {width:79px; background:url(../img/button/proxima.gif) no-repeat; float: left; }
+#navegacao #navAnterior {width:80px; background:url(../img/button/anterior.gif) no-repeat; float: left;}
+
+.nowrap {white-space:nowrap; color:#666666 !important}
+.thisUnderline { text-decoration: underline!important; }
+
+#footer .erro {background:#CC0000; border-top-color:#890000;}

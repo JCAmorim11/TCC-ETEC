@@ -1,0 +1,547 @@
+﻿var floaded = false;
+encontrarumlocal = function () {
+    openMenu('trajeto');
+    document.frm.destino.value = arguments[0];
+    if (arguments[1] != '') document.frm.destinoNum.value = arguments[1];
+    document.frm.origem.focus();
+    window.scroll(0, 0);
+}
+
+formatarDropListIE = function (el) {
+    var selectWidthDefault = $(el).css("width");
+
+    if ($.browser.msie) {
+        $(el).bind('mousedown', function () {
+            $(this).css("width", "auto");
+        });
+        $(el).bind('change', function () {
+            $(this).css("width", selectWidthDefault);
+        });
+        $(el).bind('blur', function () {
+            $(this).css("width", selectWidthDefault);
+        });
+    }
+}
+
+var trackAnalyticsLink = function(link,category,action,label) {
+	try {
+		_gaq.push(['_trackEvent', category, action,label]);
+	} catch(err) {
+		console.debug(err);
+	}
+	
+	setTimeout(function() {
+		document.location.href = link.href;
+	}, 100);
+};
+
+$(document).ready(function () {
+    formatarDropListIE("#logradouro");
+    formatarDropListIE("#origemId");
+    formatarDropListIE("#logradouroDestino");
+    formatarDropListIE("#logradouroTrajeto");
+    formatarDropListIE("#trajetoId");
+
+    
+	/*FACEBOOK*/
+	
+	!(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+	
+	//FACEBOOK
+	
+	/*
+    TWITTER
+    */
+    !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = "//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs); } } (document, "script", "twitter-wjs");
+    // TWITTER
+
+    $("SELECT").bind('mousedown', function () {
+        $(this).find("option").each(function () {
+            $(this).attr('title', $(this).text());
+        });
+    });
+
+    form = document.frm;
+    formFieldNames = ["logradouro", "origem", "origemNum", "cepOrigem", "cepdigitoOrigem", "ruaOrigem1", "ruaOrigem2", "origemId", "logradouroDestino", "destino", "destinoNum", "cepDestino", "cepdigitoDestino", "ruaDestino1", "ruaDestino2", "destinoId", "metro", "trem", "pdd", "definirdia", "horario", "parametroDistancia", "priorizar", "pontosdeinteresse", "slectPonto", "logradouroTrajeto", "ruaTrajeto", "trajetoNum", "cepTrajeto", "cepdigitoTrajeto", "rua1", "rua2", "trajetoId", "noNome", "nomeLog", "numDeLog", "numParaLog", "destacarReferencia", "destacarLinhasNoturnas", "tipoHeaderPesquisa"];
+    advancedSearch = false;
+
+    origemIdVal = "";
+    trajetoIdVal = "";
+    destinoIdVal = "";
+
+    $("input[type='text']").keypress(function (e) { return (e.which != 13); });
+    $("input[type='checkbox']").keypress(function (e) { return (e.which != 13); });
+    $("input[type='radio']").keypress(function (e) { return (e.which != 13); });
+    $("#parametroData").datepicker({ showOn: 'button', buttonImage: '/img/itinerario/layout/calendario.gif', buttonImageOnly: true, dateFormat: 'dd/mm/yy' });
+    $(".btnCliqueAquiBusca").click(function () {
+        $(".box580x81").hide();
+        $(".buscaAvancadaMa").show();
+        advancedSearch = true;
+    });
+
+    $("a.btnQuerAjuda").click(function () {
+        $ajuda = $(this).attr("href");
+        $($ajuda).bgIframe().fadeIn();
+        return false;
+    });
+
+    $locais = {
+        populate: function (target) {
+            var args = arguments;
+            $("" + target + "").attr('disabled', 'disabled').html("<option value=''>Carregando...</option>");
+
+            $.getJSON("http://200.99.150.170/PlanOperWeb/pontos.asp?l=locais&callback=?", function (data) {
+                var 
+                option = "",
+                ini = "";
+
+                ini += '<option value="endereco" selected="selected">Endereço</option>';
+                ini += '<option value="cep">CEP</option>';
+                ini += '<option value="cruzamento">Cruzamento</option>';
+                ini += '<option value="">-----------</option>';
+
+                $("" + target + "").html("");
+                $.each(data.lslocais, function (index, itemData) {
+                    option += "<option value=" + itemData.i;
+                    //if (origemIdVal == itemData.i) option += " selected='selected'";
+                    option += ">" + itemData.n + "</option>";
+                });
+                $("" + target + "").append(ini + option);
+
+                if (args.length > 1) {
+                    for (i = 1; i < args.length; i++) {
+											if ($("" + args[i] + "").attr('removeheader') !== "1") {
+												$("" + args[i] + "").append(ini + option);
+											} else {
+												$("" + args[i] + "").append(option);
+											}
+                    }
+                }
+                floaded = true;
+            });
+
+            $("" + target + "").attr('disabled', '')
+        }
+    }
+
+    $local = {
+        populate: function (target) {
+            $logradouro = $("select[name='logradouro']").val();
+            $("" + target + "").attr('disabled', 'disabled').html("<option value=''>Carregando...</option>");
+            $.getJSON("http://200.99.150.170/PlanOperWeb/pontos.asp?tipo=" + $logradouro + "&callback=?", function (data) {
+                var option = "";
+                $("" + target + "").attr('disabled', '').html("");
+                $.each(data.locais, function (index, itemData) {
+                    option += "<option value=" + itemData.id;
+                    if (origemIdVal == itemData.id) option += " selected='selected'";
+                    option += ">" + itemData.local + "</option>";
+                });
+                $("" + target + "").append("<option value=''>SELECIONE</option>" + option);
+            });
+        }
+    }
+
+    $localDestino = {
+        populate: function (target) {
+            $logradouro = $("select[name='logradouroDestino']").val();
+            $("" + target + "").attr('disabled', 'disabled').html("<option value=''>Carregando...</option>");
+            $.getJSON("http://200.99.150.170/PlanOperWeb/pontos.asp?tipo=" + $logradouro + "&callback=?", function (data) {
+                var option = "";
+                $("" + target + "").attr('disabled', '').html("");
+                $.each(data.locais, function (index, itemData) {
+                    option += "<option value=" + itemData.id;
+                    if (destinoIdVal == itemData.id) option += " selected='selected'";
+                    option += ">" + itemData.local + "</option>";
+                });
+                $("" + target + "").append("<option value=''>SELECIONE</option>" + option);
+            });
+        }
+    }
+
+    $localTrajeto = {
+        populate: function (target) {
+            $logradouro = $("select[name='logradouroTrajeto']").val();
+            $("" + target + "").attr('disabled', 'disabled').html("<option value=''>Carregando...</option>");
+            $.getJSON("http://200.99.150.170/PlanOperWeb/pontos.asp?tipo=" + $logradouro + "&callback=?", function (data) {
+                var option = "";
+                $("" + target + "").attr('disabled', '').html("");
+                $.each(data.locais, function (index, itemData) {
+                    option += "<option value=" + itemData.id;
+                    if (trajetoIdVal == itemData.id) option += " selected='selected'";
+                    option += ">" + itemData.local + "</option>";
+                });
+                $("" + target + "").append("<option value=''>SELECIONE</option>" + option);
+            });
+        }
+    }
+
+    logradouroChange = function (name) {
+        $(".contentEndereco, .contentCruzamento, .contentCep, .contentOrigem").hide();
+        $("select[name='origemId']").val("");
+        switch (name) {
+            case "endereco":
+                $(".contentEndereco").fadeIn();
+                break;
+            case "cep":
+                $(".contentCep").fadeIn();
+                break;
+            case "cruzamento":
+                $(".contentCruzamento").fadeIn();
+                break;
+            case "":
+                break;
+            default:
+                $(".contentOrigem").fadeIn();
+                $("select[name='origemId']").val("");
+                $local.populate("select[name='origemId']");
+                break;
+        }
+        return false;
+    }
+
+    $("select[name='logradouro']").change(function () { logradouroChange($(this).attr("value")) });
+
+    logradouroDestinoChange = function (name) {
+        $(".contentEnderecoDestino, .contentCruzamentoDestino, .contentCepDestino, .contentDestino").hide();
+        switch (name) {
+            case "endereco":
+                $(".contentEnderecoDestino").fadeIn();
+                break;
+            case "cep":
+                $(".contentCepDestino").fadeIn();
+                break;
+            case "cruzamento":
+                $(".contentCruzamentoDestino").fadeIn();
+                break;
+            case "":
+                break;
+            default:
+                $(".contentDestino").fadeIn();
+                $("select[name='destinoId']").val("");
+                $localDestino.populate("select[name='destinoId']");
+                break;
+        }
+        return false;
+    }
+
+    $("select[name='logradouroDestino']").change(function () { logradouroDestinoChange($(this).attr("value")) });
+
+    logradouroTrajetoChange = function (name) {
+        $(".contentEndereco, .contentCruzamento, .contentCep, .contentOrigem").hide();
+        switch (name) {
+            case "endereco":
+                $(".contentEndereco").fadeIn();
+                break;
+            case "cep":
+                $(".contentCep").fadeIn();
+                break;
+            case "cruzamento":
+                $(".contentCruzamento").fadeIn();
+                break;
+            case "":
+                break;
+            default:
+                $(".contentOrigem").fadeIn();
+                $("select[name='trajetoId']").val("");
+                $localTrajeto.populate("select[name='trajetoId']");
+                break;
+        }
+        return false;
+    }
+
+    $("select[name='logradouroTrajeto']").change(function () { logradouroTrajetoChange($(this).attr("value")) });
+    $(".autotab").autotab();
+
+    $(".numbers").keypress(function (e) {
+        if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+            return false;
+        }
+    });
+
+    setlogradouro = function () {
+        if (floaded === false) {
+            var args = arguments;
+            setTimeout(function () {
+                setlogradouro.apply(this, args);
+            }, 500);
+        } else {
+            origemIdVal = arguments[1];
+            $(form.logradouro).val(arguments[0]);
+            logradouroChange(arguments[0]);
+        }
+    }
+
+    setlogradouroDestino = function () {
+        if (floaded === false) {
+            var args = arguments;
+            setTimeout(function () {
+                setlogradouroDestino.apply(this, args);
+            }, 500);
+        } else {
+            destinoIdVal = arguments[1];
+            $(form.logradouroDestino).val(arguments[0]);
+            logradouroDestinoChange(arguments[0]);
+        }
+    }
+
+    setlogradouroTrajeto = function () {
+        if (floaded === false) {
+            var args = arguments;
+            setTimeout(function () {
+                setlogradouroTrajeto.apply(this, args);
+            }, 500);
+        } else {
+            trajetoIdVal = arguments[1];
+            $(form.logradouroTrajeto).val(arguments[0]);
+            logradouroTrajetoChange(arguments[0]);
+        }
+    }
+
+    $("#metro, #trem, #pdd, #destacarReferencia, #destacarLinhasNoturnas").click(function () {
+        $(this).val(($(this).is(':checked')) ? "on" : "off");
+    });
+
+    $locais.populate('select[id=logradouro]', 'select[id=logradouroDestino]', 'select[id=slectPonto]', 'select[id=logradouroTrajeto]');
+});
+
+
+trajetoConsulta = function () {
+    $("#btnConsultarItinerario").blur();
+    error = false;
+    $("#logradouro, #origem, #origemNum, #cepOrigem, #cepdigitoOrigem, #ruaOrigem1, #ruaOrigem2, #logradouroDestino, #destino, #destinoNum, #cepDestino, #cepdigitoDestino, #ruaDestino1, #ruaDestino2, #parametroDistancia").removeClass("erro");
+    if ($("#logradouro").val() == "endereco") {
+        if ($("#origem").attr("value") == "" || $("#origem").attr("value") == "|") { $("#origem").addClass("erro"); error = true; }
+        if ($("#origemNum").attr("value") == "" || $("#origemNum").attr("value") == "|") { $("#origemNum").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouro").val() == "cep") {
+        if ($("#cepOrigem").attr("value") == "" || $("#cepOrigem").attr("value") == "|") { $("#cepOrigem").addClass("erro"); error = true; }
+        if ($("#cepdigitoOrigem").attr("value") == "" || $("#cepdigitoOrigem").attr("value") == "|") { $("#cepdigitoOrigem").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouro").val() == "cruzamento") {
+        if ($("#ruaOrigem1").attr("value") == "" || $("#ruaOrigem1").attr("value") == "|") { $("#ruaOrigem1").addClass("erro"); error = true; }
+        if ($("#ruaOrigem2").attr("value") == "" || $("#ruaOrigem2").attr("value") == "|") { $("#ruaOrigem2").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouro").val() == "") {
+        error = true;
+        $("#logradouro").addClass("erro");
+    }
+    if ($("#logradouroDestino").val() == "endereco") {
+        if ($("#destino").attr("value") == "" || $("#destino").attr("value") == "|") { $("#destino").addClass("erro"); error = true; }
+        if ($("#destinoNum").attr("value") == "" || $("#destinoNum").attr("value") == "|") { $("#destinoNum").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouroDestino").val() == "cep") {
+        if ($("#cepDestino").attr("value") == "" || $("#cepDestino").attr("value") == "|") { $("#cepDestino").addClass("erro"); error = true; }
+        if ($("#cepdigitoDestino").attr("value") == "" || $("#cepdigitoDestino").attr("value") == "|") { $("#cepdigitoDestino").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouroDestino").val() == "cruzamento") {
+        if ($("#ruaDestino1").attr("value") == "" || $("#ruaDestino1").attr("value") == "|") { $("#ruaDestino1").addClass("erro"); error = true; }
+        if ($("#ruaDestino2").attr("value") == "" || $("#ruaDestino2").attr("value") == "|") { $("#ruaDestino2").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouroDestino").val() == "") {
+        error = true;
+        $("#logradouroDestino").addClass("erro");
+    }
+    if ($("#parametroDistancia").attr("value") == "" || $("#parametroDistancia").attr("value") == "|" || !(/^\d+$/).test($("#parametroDistancia").attr("value"))) { $("#parametroDistancia").addClass("erro"); error = true; }
+    if (!error) {
+        document.frm.tipoHeaderPesquisa.value = (advancedSearch) ? 2 : 1;
+        sendData();
+    }
+}
+
+localConsulta = function () {
+    $("#commitEnviarLocal").blur();
+    error = false;
+    $("#logradouroTrajeto, #slectPonto, #ruaTrajeto, #trajetoNum, #cepTrajeto, #cepdigitoTrajeto, #rua1, #rua2").removeClass("erro");
+    if ($("#checkCorredores").is(':checked') && $("#slectPonto").val() == "") { $("#slectPonto").addClass("erro"); error = true; }
+    if ($("#logradouroTrajeto").val() == "endereco") {
+        if ($("#ruaTrajeto").attr("value") == "" || $("#ruaTrajeto").attr("value") == "|") { $("#ruaTrajeto").addClass("erro"); error = true; }
+        if ($("#trajetoNum").attr("value") == "" || $("#trajetoNum").attr("value") == "|") { $("#trajetoNum").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouroTrajeto").val() == "cep") {
+        if ($("#cepTrajeto").attr("value") == "" || $("#cepTrajeto").attr("value") == "|") { $("#cepTrajeto").addClass("erro"); error = true; }
+        if ($("#cepdigitoTrajeto").attr("value") == "" || $("#cepdigitoTrajeto").attr("value") == "|") { $("#cepdigitoTrajeto").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouroTrajeto").val() == "cruzamento") {
+        if ($("#rua1").attr("value") == "" || $("#rua1").attr("value") == "|") { $("#rua1").addClass("erro"); error = true; }
+        if ($("#rua2").attr("value") == "" || $("#rua2").attr("value") == "|") { $("#rua2").addClass("erro"); error = true; }
+    }
+    else if ($("#logradouroTrajeto").val() == "") {
+        error = true;
+        $("#logradouroTrajeto").addClass("erro");
+    }
+    if (!error) {
+        document.frm.tipoHeaderPesquisa.value = 3;
+        sendData();
+    }
+}
+
+linhaConsulta = function () {
+    $("#commitEnviarLinha").blur();
+    error = false;
+    var flagLogrErro = 0;
+    var $objA = $("#boxLinhaPorLogradouro :input").not(":input[type=image], :input[validate=false]");
+    var $objB = $("#boxLinhaPorNome :input");
+
+    if (($objA.val() == "" || $objA.val() == "|") && ($objB.val() == "" || $objB.val() == "|")) {
+        $objA.addClass("erro");
+        $objB.addClass("erro");
+        error = true;
+    }
+    else {
+        $objA.each(function () {
+            if ($(this).val() == "" || $(this).val() == "|") {
+                $(this).addClass("erro");
+                flagLogrErro++;
+                error = true;
+            }
+            else
+                $(this).removeClass("erro");
+        });
+        if (flagLogrErro == 0 || flagLogrErro == $objA.length) {
+            error = false;
+            $objA.removeClass("erro");
+        }
+    }
+
+    if (!error) {
+        $objA.removeClass("erro");
+        $objB.removeClass("erro");
+
+        document.frm.tipoHeaderPesquisa.value = 5;
+        sendData();
+    }
+}
+
+itiEncontrarLocal = function (valor) {
+    if (valor == "Terminais" || valor == "Recarga") {
+        $("#slectPonto").attr({
+            disabled: true
+        }).val("");
+    }
+    else {
+        $("#slectPonto").attr({
+            disabled: false
+        });
+        if ($("#slectPonto").val() == "" || $("#slectPonto").val() == null || $("#slectPonto").val() == undefined) {
+            $("#slectPonto")[0].selectedIndex = 0;
+        }
+    }
+}
+
+$(document).ready(function () {
+    $("#headerLvl1 .seloAcess").hover(
+      function () {
+          showDiv('#aboutAcessibilidade');
+      },
+      function () {
+          hideDiv('#aboutAcessibilidade');
+      }
+    );
+    $(".assineNewsTitle").hover(
+      function () {
+          showDiv('#aboutJanela');
+      },
+      function () {
+          hideDiv('#aboutJanela');
+      }
+    );
+});
+
+openFav = function (filter, fields, type, values, text) {
+    destino = 1;
+    if (fields[0] == "destino" || fields[0] == "cepDestino" || fields[0] == "ruaDestino1" || fields[0] == "logradouroDestino")
+        destino = 2;
+    else if (fields[0] == "ruaTrajeto" || fields[0] == "cepTrajeto" || fields[0] == "rua1" || fields[0] == "logradouroTrajeto")
+        destino = 3;
+
+    var queryString = "?filter=" + filter + "&destino=" + destino + "&valores=" + values[0] + "@" + values[1];
+    window.open("/itinerarios/popFavorito.aspx" + queryString, "fav", "width=550,height=550,scrollbars=yes");
+}
+
+$(document).ready(function () {
+    var re;
+
+    $(".btQuerAjudaHeader1").click(function () {
+        $("#ajuda1").fadeIn('fast')
+    })
+    $(".btQuerAjudaHeader2").click(function () {
+        $("#ajuda2").fadeIn('fast')
+    })
+    $(".btFecharAjuda, #headerLinks a").click(function () {
+        $(".boxQuerAjuda").fadeOut('fast')
+    })
+    //$("#origem, #destino").autocomplete('/itinerarios/proxyAutoComplete.aspx', { max: 10 });
+    //$("#noNome").autocomplete('/itinerarios/proxyAutoComplete.aspx', { max: 10 });
+    //$("#proximidade").autocomplete('/itinerarios/proxyAutoComplete.aspx', { max: 10 });
+    $(".btFavoritosHeader").click(function () {
+        parans = $(this).attr("rel").split(";")
+        filter = parans[0];
+        fields = [parans[1], parans[2]]
+        type = [$("#" + parans[1]).attr('type'), $("#" + parans[2]).attr('type')];
+        values = [escape($("#" + parans[1]).val()), escape($("#" + parans[2]).val())];
+        text = [escape(($("#" + parans[1]).attr('type') == "select-one") ? $("#" + parans[1] + " :selected").text() : $("#" + parans[1]).val()), escape(($("#" + parans[2]).attr('type') == "select-one") ? $("#" + parans[2] + " :selected").text() : $("#" + parans[2]).val())];
+        openFav(filter, fields, type, values, text);
+    });
+
+    $("#noNome").bind('keyup', function (e) {
+        re = new RegExp(/^[0-9]{3}/g);
+
+        if ($(this).val().match(re)) {
+            c = $(this).val().replace(/[^0-9a-zA-Z\-\/]/g, '');
+        } else {
+            c = $(this).val();
+        }
+        $(this).val(c);
+    });
+
+    $("#numDeLog, #numParaLog").bind("keydown keyup", function (e) {
+        re = new RegExp(/[^0-9]/);
+
+        if ($(this).val().match(re)) {
+            c = $(this).val().replace(/[^0-9]/, '');
+        } else {
+            c = $(this).val();
+        }
+        $(this).val(c);
+    });
+
+});
+
+sendData = function () {
+    $('body').append($('<form id="itinerariosFrm" name="itinerariosFrm" action="/itinerarios/" method="post"></form>'));
+    $.each(formFieldNames, function (index, value) {
+        if ($('*[name=' + value + ']').attr('type') == "radio")
+            $('#itinerariosFrm').append($('<input type="hidden" name="' + value + '" value="' + $('*[name=' + value + ']:checked').val() + '" />'));
+        else
+            if ($('*[name=' + value + ']').val() != "" && $('*[name=' + value + ']').val() != "|")
+                $('#itinerariosFrm').append($('<input type="hidden" name="' + value + '" value="' + $('*[name=' + value + ']').val() + '" />'));
+    });
+    document.itinerariosFrm.submit();
+}
+
+/////////////////////////////////////////////////////////////////////
+
+jQuery.fn.autotab = function () {
+    jQuery(this).keyup(function (e) {
+        switch (e.keyCode) {
+            case 9:
+            case 16:
+            case 20:
+                return false;
+                break;
+            default:
+                var maxlength = jQuery(this).attr('maxlength');
+                var inputlength = jQuery(this).val().length;
+                if (inputlength >= maxlength) {
+                    jQuery(this).next('input[type="text"]').focus();
+                }
+                break;
+        }
+    });
+}

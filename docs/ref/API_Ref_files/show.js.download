@@ -1,0 +1,51 @@
+﻿function show(element)
+{
+	var target = document.getElementById(element);
+	if (target != null)
+		target.style.display = "block";		
+}
+
+function hide(element)
+{
+	var target = document.getElementById(element);
+	if (target != null)
+		target.style.display = "none";		
+}
+
+function openMenu(sMenu) {
+
+    $("#headerLinks .headerAtivo").removeClass('headerAtivo');
+	switch(sMenu)
+	{
+	    case "trajeto":
+	        $("#headerLinks .fazerTrajeto").addClass('headerAtivo');
+			show("contentTrajeto");
+			hide("contentLinha");
+			hide("contentLocal");
+			show("parametrosPesquisaTrajeto");
+			hide("parametrosPesquisaLocal");
+			hide("parametrosPesquisaLinha");
+		break;
+
+        case "linha":
+            $("#headerLinks .encontreLinha").addClass('headerAtivo');
+			hide("contentTrajeto");
+			show("contentLinha");
+			hide("contentLocal");
+			hide("parametrosPesquisaTrajeto");
+			show("parametrosPesquisaLocal");
+			hide("parametrosPesquisaLinha");
+		break;
+
+        case "local":
+            $("#headerLinks .encontreLocal").addClass('headerAtivo');
+			hide("contentTrajeto");
+			hide("contentLinha");
+			show("contentLocal");
+			hide("parametrosPesquisaTrajeto");
+			hide("parametrosPesquisaLocal");
+			show("parametrosPesquisaLinha");
+		break;
+		
+	}
+}

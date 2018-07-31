@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>SPTrans - Desculpe. Página não encontrada.</title>
+<meta name='description' content='' />
+
+<link rel="stylesheet" type="text/css" href="/css/reset-min.css" />
+<link rel="stylesheet" type="text/css" href="/css/overall.css" />
+<link rel="stylesheet" type="text/css" href="/css/fontes.css" />
+<link rel="stylesheet" type="text/css" href="/css/header.css" />
+<link rel="stylesheet" type="text/css" href="/css/menu.css" />
+<link rel="stylesheet" type="text/css" href="/css/spTransInternas.css" />
+<link rel="stylesheet" type="text/css" href="/css/selecaoPublica.css" />
+<link rel="stylesheet" type="text/css" href="/css/footer.css" />
+<link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+
+<script type="text/javascript" src="/js/jquery.js"></script><noscript></noscript>
+<script type="text/javascript" src="/js/font-resize.js"></script><noscript></noscript>
+<script type="text/javascript">
+	$(document).ready(function(){
+		hideAll();
+	});
+
+	function hideAll(){
+		$('#lista2007').hide();
+		$('#lista2008').hide();
+		$('#lista2009').hide();
+		}
+
+	function selectAno(a){
+		if(a != ''){
+			hideAll();
+			$('#lista'+a).show();
+		}else{
+			hideAll();
+		}
+	}		
+</script>
+</head>
+
+<body id="bodySelecao">
+<form name="frm" method="post" action="404.aspx?404%3bhttp%3a%2f%2fwww.sptrans.com.br%3a80%2fdesenvolvedores%2fAPIOlhoVivo%2fcss%2fheader.css" id="frm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKLTg2NzI0NDA1Ng9kFgICAQ9kFgICAw9kFgICBQ9kFgYCBQ8QDxYGHg1EYXRhVGV4dEZpZWxkBQZSZWdpYW8eDkRhdGFWYWx1ZUZpZWxkBQJJRB4LXyFEYXRhQm91bmRnZBAVBQVOb3J0ZQNTdWwFTGVzdGUFT2VzdGUGQ2VudHJvFQUBMwE0ATUBNgE3FCsDBWdnZ2dnZGQCBw8QDxYGHwAFBlJlZ2lhbx8BBQJJRB8CZ2QQFQUFTm9ydGUDU3VsBUxlc3RlBU9lc3RlBkNlbnRybxUFATMBNAE1ATYBNxQrAwVnZ2dnZ2RkAgsPEA8WBh8ABQdBc3N1bnRvHwEFAklEHwJnZBAVAwhDdWx0dXJhbBdNdWRhbsOnYSBkZSBJdGluZXLDoXJpbxRUdWRvIHNvYnJlIGEgU1BUcmFucxUDATQBNQE2FCsDA2dnZ2RkGAEFHl9fQ29udHJvbHNSZXF1aXJlUG9zdEJhY2tLZXlfXxYBBRJmb290ZXIkYXNzdW50b05ld3P33sUKDhaMJAnTEqPIMmp6tuMBhg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frm'];
+if (!theForm) {
+    theForm = document.frm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="A475655C" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWEQK/qcCDCwLl0pyxCQLMj6uNDgLtl6l7AuyXqXsC65epewLql6l7AumXqXsCq5+dpgUCqp+dpgUCrZ+dpgUCrJ+dpgUCr5+dpgUCxYSLjQ0Cq6n20gwCrKn20gwCran20gzZ0o32iyqXUZzh8U912zlOUjgTlQ==" />
+</div><div id="body">
+	<!-- Include Header -->
+	
+
+
+<script type="text/javascript" language="javascript" src="/js/show.js"></script>
+<script type="text/javascript" language="javascript" src="/js/jquery.maskedinput.js"></script>
+<script type="text/javascript" language="javascript" src="/js/jquery.bgiframe.js"></script>
+<script type="text/javascript" language="javascript" src="/js/header.js"></script>
+<script type="text/javascript" language="javascript" src="/js/gBusca.js"></script>
+<script type="text/javascript" language="javascript" src="/js/gBusca_newsletter.js"></script>
+<script type="text/javascript" language="javascript" src="/js/ui.core.js"></script>
+<script type="text/javascript" language="javascript" src="/js/ui.datepicker.js"></script>
+<script type="text/javascript" language="javascript" src="/js/date_pt-br.js"></script>
+<script type="text/javascript" language="javascript" src="/js/jquery.anchor.js"></script>
+<script type="text/javascript" language="javascript" src="/js/urlEncode.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/header.css">
+
+<script language="JavaScript" type="text/javascript">
+    function openWindow(url, name, largura, altura) {
+        var winWidth = largura;
+        var winHeight = altura;
+        var winTop = parseInt((screen.availHeight - winHeight) / 2);
+        var winLeft = parseInt((screen.availWidth - winWidth) / 2);
+
+        popupWin = window.open(url, name, "width=" + winWidth + ",height=" + winHeight + ",top=" + winTop + ",left=" + winLeft + ",resizable=no,toolbar=no,scrollbars=yes,statusbar=no");
+        if (popupWin.opener == null) popupWin.opener = self;
+    } // done hiding -->
+    function abreLicitaoes() {
+        openWindow("/licitacoes/", "Licitações", 765, 524);
+    }
+    </script>
+<script type="text/javascript" src="/js/jquery.asmselect.js"></script>
+<!--[if IE]> <link rel="stylesheet" type="text/css" href="css/header_ie.css"><![endif]-->
+<!--[if IE 6]>
+
+<![endif]-->
+<style type="text/css">
+
+
+<!--
+..style11 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 11px; color: #E0E0E0; text-decoration:underline; }
+.style22 {color: #CCCCCC}
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+a:active {
+	text-decoration: none;
+}
+.style23 {font-size: 12px}
+-->
+</style>
+
+
+
+<div id="header">
+	<h1 id="aboutAcessibilidade" class="aboutThis">
+	    Acessibilidade Digital
+	</h1>
+	<div>
+	
+	<table width="1000" height="46" border="0" class="style21" accesskey="2">
+      <tr>
+        <td width="391" height="42"><a href="http://www.capital.sp.gov.br/"  title="Prefeitura de São Paulo" target="_blank" class="style22"  ><span id="pageTitle">PREFEITURA DE SÃO PAULO</span></a></td>
+        <td width="188" align="center"><div align="right"><a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/institucional/sptrans/acesso_a_informacao/index.php" target="_blank" class="style21"><span id="pageTitle">Acesso à Informação </span></a></div></td>
+        <td width="134" align="left"><div align="left"><a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/institucional/sptrans/acesso_a_informacao/index.php" target="_blank"> <img src="http://www.sptrans.com.br/img/button/acessoInformacao.png" width="23" height="27" /></a></div></td>
+        <td width="269" align="center"><div align="right"><a href="http://transparencia.prefeitura.sp.gov.br/acesso-a-informacao/Paginas/default.aspx" target="_blank" class="style21"> <span id="pageTitle">TRANSPARÊNCIA SÃO PAULO </span></a></div></td>
+      </tr>
+	  </table>
+	  
+	 
+	 <table width="1000" height="53" border="0" class="style22" accesskey="2">
+      <tr >
+        <td width="722" height="49" bgcolor="#949494" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/" target="_blank" class="style23"  >Secretaria Municipal de Mobilidade e Transportes</a></td>
+        <td width="10" bgcolor="#949494"><a href="https://www.instagram.com/sptransoficial/"><img src="/img/layout/botaoinstagrammini.png" border="0" longdesc="https://www.instagram.com/sptransoficial/" /></a></td>
+        <td width="30" bgcolor="#949494"><a href="http://bilheteunico.sptrans.com.br/"><img src="/img/layout/bumini.png" border="0" longdesc="http://bilheteunico.sptrans.com.br/" /></a></td>
+        <td width="30" bgcolor="#949494"><a href="http://www.youtube.com/sptranssp"><img src="/img/layout/botao-youtubemini.png" border="0" longdesc="https://twitter.com/sptrans_" /></a></td>
+        <td width="30" bgcolor="#949494"><a href="https://www.facebook.com/SPTransOficial/"><img src="/img/layout/facebookmini.png"  border="0" longdesc="https://www.facebook.com/SPTransOficial/" /></a></td>
+        <td width="30" bgcolor="#949494"><a href="https://twitter.com/sptrans_"><img src="/img/layout/twittermini.png" border="0" longdesc="https://twitter.com/sptrans_" /></a></td>
+      </tr>
+    </table>
+	</div>
+	
+		
+	<div id="headerLvl1">
+	
+	 <table width="1000" height="105" border="0" accesskey="2">
+      <tr >
+        <td width="167" height="92" ><div id="logoSPT" style="border: 0px; float: center;">
+			<div align="center"><a href="/">
+			  <img src="/img/marcas/spTransLargeFooter.png" alt="Página Principal SPTrans" />			</a>		        </div>
+        </div>	</td>
+        <td width="290"><span class="colorred"><a href="#pageContent" title="Ir para o corpo da página." accesskey="1"><span class="colorred">.</span></a></span>
+	<span><a href="/itinerarios/" title="Itinerarios" accesskey="2"><span id="pageTitle">Saiba como ir de ônibus</span></a></span></td>
+        <td width="107"><span><a id="coSac" href="/sac/"><strong>Central de Atendimento </strong></a></span></td>
+        <td width="260">
+		<input tabindex="20" type="button" id="comitProcura" onclick="search('header')" />
+		
+		<input tabindex="21" type="text" value="|"  onfocus="if(this.value=='|')this.value=''" onblur="if(this.value=='')this.value='|'" id="busca" name="busca" onkeydown="searchKey('header')" />
+		
+		<label class="busca" for="busca"><strong>Busca</strong></label>		</td>
+        <td width="154"><div id="logoSMT" style="border: 0px; float: center;">
+			<div align="center">
+			  <p><a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/" target="_blank"></a><a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/" target="_blank"><img src="/img/layout/mobilidade_transportes.png" alt="Prefeitura de São Paulo Secretaria de Mobilidade e Transportes." />
+		      </a> </p>
+			  </div>
+        </div></td>
+      </tr>
+    </table>
+	</div>
+	
+	
+    <div id="novo_menu">
+        <ul id="menu">
+		
+			<li><a href="/a_sptrans/" class="drop"><strong>A SPTRANS</strong></a></li>
+			<li><a href="http://bilheteunico.sptrans.com.br" class="drop"><strong>BILHETE ÚNICO</strong></a></li>
+			<li><a href="http://estudante.sptrans.com.br" class="drop"><strong>CARTEIRA ESTUDANTIL</strong></a></li>
+			<li><a href="/sac/" class="drop"><strong>CENTRAL DE ATENDIMENTO</strong></a></li>
+			<li ><a href="javascript:openWindow('/licitacoes/', 'remote',765,524);" class="drop"><strong>LICITAÇÕES</strong></a></li>
+			<li ><a href="/atende/" class="drop"><strong>ATENDE +</strong></a></li>
+			<li ><a href="/terminais/" class="drop" ><strong>TERMINAIS, PARADAS E CORREDORES</strong></a></li>
+		</ul>
+    </div>
+	
+	
+	
+</div>
+
+
+
+
+<script type="text/javascript" language="javascript">itiEncontrarLocal('Terminais');</script>
+
+	
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" >
+	<!-- Include Header -->
+
+	<!-- Content -->
+
+	<div id="pageContent">
+
+    
+            
+                <div id="selecaoPublica">
+
+                        <div id="headerContent">
+                            <h1><a href="/">Home</a> > <strong>Erro 404</strong> </h1>             
+							<a title="Aumentar fonte" id="fontResizeMais" class="fontResize" href="javascript:void(0);"><img src="/img/button/tamanhoFonte.gif" alt="Aumentar fonte" /></a>
+							<a title="Diminuir fonte" id="fontResizeMenos" class="fontResize" href="javascript:void(0);"><img src="/img/button/tamanhoFonte-.gif" alt="Diminuir fonte" /></a>
+							<a id="printPage" href="javascript:window.print();">Imprimir</a>
+                        </div>
+                        <div class="content404">
+                        	<h3 title="Erro 404">Erro 404</h3>
+                            <p><span>Desculpe. Página não encontrada.</span></p>
+                        </div>
+
+                </div>
+
+	<!-- Content -->
+        </div>
+        <div class="clear"></div>
+	<!-- Include Header -->
+	
+<style type="text/css">
+<!--
+.style3 {color: #333333}
+-->
+</style>
+
+
+
+<div id="footer">
+   <p>
+     <!-- <div id="aboutJanela" class="aboutThis">
+        Receba nossa newsletter mensal. 
+    </div>-->
+  
+		
+  <div style="width: 999px; height: 100px; float: left; padding-top: 20px;">
+		<ul id="linkArea1">
+			<li><a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/institucional/sptrans/acesso_a_informacao/index.php">Acesso à Informação</a></li>
+			<li><a href="/app/">Apps para recarga</a></li>
+			<li><a href="http://bilheteunico.sptrans.com.br/">Bilhete Único</a></li>
+			<li><a href="/campanha/">Campanhas</a></li>
+			<li><a href="http://estudante.sptrans.com.br/">Carteira Estudantil</a></li>
+				
+			   	
+		</ul>
+		<ul id="linkArea2">
+			<li><a href="/concessao_permissao/">Concessão e Permissão</a></li> 		
+			<li><a href="/conferencia/">Conferência - Inovações Tecnológicas</a></li> 		
+			<li><a href="/credenciamento_instituicoes/">Credenciamento</a></li>
+			<li><a href="/cultura/">Cultura nos Terminais </a></li>		
+			
+		</ul>
+		<ul id="linkArea3">	
+			<li><a href="/desenvolvedores/">Dados p/ Desenvolvedores</a></li>
+			<li><a href="/estagios/">Estágios</a></li>        
+			<li><a href="/desenvolvedores/">GTFS / API Olho Vivo</a></li>
+			<li><a href="#" onclick="abreLicitaoes();return false;">Licitações</a></li>
+						
+			
+			
+		</ul>
+		<ul id="linkArea4">		
+		   <li><a href="/noturno/">Linhas Noturnas</a></li>
+		   <li><a href="/livro/">Livro na Faixa</a></li>
+		   <!-- <li><a href="/mapa_do_site/">Mapa do Site</a></li>        -->
+			<li><a href="/midia/">Mídia no Ônibus</a></li>
+			<li><a href="/informativos/">Mudanças Operacionais</a></li>
+			
+			
+			    
+		</ul> 
+		<ul id="linkAreab">
+			<li><a href="/museu/">Museu dos Transportes</a></li>
+			<li><a href="/noticias/">Notícias</a></li>
+			<!--<li><a href="http://www.sptrans.com.br/noticias/noticia.aspx?6793">Organismos de Certificação e Inspeção</a></li>-->
+			<li><a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/participacao_social/">Participação Social</a></li>
+			<li><a href="/passageiros_especiais/">Passageiros Especiais</a></li>	
+			
+			
+			   
+		</ul> 
+		<ul id="linkAreac">
+			<li><a href="http://proconpaulistano.prefeitura.sp.gov.br/">Procon Paulistano</a></li>
+			<li><a href="/rss/">RSS</a></li>
+			<li><a href="/selecao_publica/">Seleção Pública</a></li>
+		<!--	<li><a href="/medicoauditor/">Seleção Simplificada - Médico Auditor 2017</a></li>-->
+			<li id="compartilheLk"><a href="/sptransnarede/">SPTrans na Rede</a></li>           
+		</ul> 
+  </div>	
+    <div>
+		<!--<img id="separador" src="/img/layout/separadorFooter.jpg" alt="separador footer"/>-->
+		
+    </div>  
+	  <!--<a href=""><img  class="img_footer" src="/img/layout/flickr.png" width="50" alt="flickr"/></a>
+			  
+			  <span style="padding-left: 20px">
+				<a href="https://twitter.com/sptrans_" class="twitter-follow-button" data-show-count="false">Follow @sptrans_</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+			</span>
+            <!--<a href="/verifica" target="_blank"><img class="img_footer" src="/img/layout/botaoverifica.png" width="50" alt="Verificação Independente" title="Verificação Independente"/></a>-->
+		</br></br></br></br></br></br></br></br></br></br></br>
+
+    
+                <!--
+	<script type="text/javascript">
+		function abreTutorial() {
+			window.open("/tutorial/index.html", "tutorial", "width=765, height=524, scrollbars=no");
+		}
+		function abreLicitaoes() {
+			window.open("/licitacoes/", "Licitações", "width=765, height=524, scrollbars=yes");
+		}
+		
+	
+	
+	
+     
+	<ul id="linkArea4">
+		
+	   
+        
+           
+           <li class="assineNewsTitle">ASSINE <strong>"NEWSLETTER SPTRANS"</strong></li>
+	    
+	    
+		    <li>
+			    <label for="footer_nomeNews" class="nomeNews">NOME&nbsp;</label>
+			    <input name="footer$nomeNews" type="text" id="footer_nomeNews" tabindex="50" value="|" onfocus="if(this.value=='|')this.value=''" onblur="if(this.value=='')this.value='|'" />
+		    </li>
+		    <li>
+			    <label for="footer_emailNews" class="emailNews">E-MAIL&nbsp;</label>
+			    <input name="footer$emailNews" type="text" id="footer_emailNews" tabindex="51" value="|" onfocus="if(this.value=='|')this.value=''" onblur="if(this.value=='')this.value='|'" />
+		    </li>
+				
+	</ul>
+
+	<ul id="linkArea6">
+	    <li class="assineNewsTitle"><strong>&nbsp;</strong></li>
+	    <li>
+	        <label for="footer_trabalhoNews" class="trabalhoNews">TRABALHO</label>
+                <select name="footer$trabalhoNews" id="footer_trabalhoNews">
+	<option value="3">Norte</option>
+	<option value="4">Sul</option>
+	<option value="5">Leste</option>
+	<option value="6">Oeste</option>
+	<option value="7">Centro</option>
+
+</select>
+	    </li>
+	    <li>
+	        <label for="footer_residenciaNews" class="residenciaNews">RESIDÊNCIA</label>
+                <select name="footer$residenciaNews" id="footer_residenciaNews">
+	<option value="3">Norte</option>
+	<option value="4">Sul</option>
+	<option value="5">Leste</option>
+	<option value="6">Oeste</option>
+	<option value="7">Centro</option>
+
+</select>
+	    </li>
+	</ul>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#linkArea7 SELECT").asmSelect({
+                addItemTarget: 'bottom',
+                animate: true,
+                highlight: true,
+                sortable: false
+            });
+
+        }); 
+
+	</script>
+           
+	<ul id="linkArea7">
+
+  			<li>
+  			   
+  			    <a id="footer_commitNewsCadastro" tabindex="52" class="commitNewsCadastrocss" href="javascript:__doPostBack('footer$commitNewsCadastro','')">ENVIAR</a>  
+				
+				<label for="footer_assuntoNews" class="assuntoNews">ASSUNTO</label>
+                  <select size="4" name="footer$assuntoNews" multiple="multiple" id="footer_assuntoNews" title="Selecione">
+	<option value="4">Cultural</option>
+	<option value="5">Mudan&#231;a de Itiner&#225;rio</option>
+	<option value="6">Tudo sobre a SPTrans</option>
+
+</select>
+                  
+                  
+            </li>
+            
+	
+	</ul>
+    --></td>
+          </tr>
+        </table>
+  <p align="right">&nbsp;</p>
+</div>
+
+<script type="text/javascript" src="/js/validacao-footer.js"></script>
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  
+	// ga('create', 'UA-XXXXX-Y', 'auto');
+	// ga('send', 'pageview');
+</script>
+<script type="text/javascript">
+(function() {
+var hm = document.createElement('script'); hm.type ='text/javascript'; hm.async = true;
+hm.src = ('++u-heatmap-it+log-js').replace(/[+]/g,'/').replace(/-/g,'.');
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>ga('create', 'UA-11455060-1', 'sptrans.com.br'); ga('send', 'pageview');</script>
+
+
+	  <table width="1000" height="82" border="0" accesskey="2">
+      <tr>
+        <td width="29" height="78" bgcolor="#CCCCCC" >
+		  <div align="right"></div></td>
+		
+		
+		
+        <td width="188" bgcolor="#CCCCCC"><a href="www.sptrans.com.br"><img src="/img/marcas/spTransLargeFooter.png" alt="SPTrans" name="logoSptransFooter" border="0" id="logoSptransFooter" /></a></td>
+        <td width="164" bgcolor="#CCCCCC"><a href="http://www.prefeitura.sp.gov.br/cidade/secretarias/transportes/" target="_blank"><img src="/img/layout/mobilidade_transportes.png" alt="Prefeitura de São Paulo Secretaria de Mobilidade e Transportes." />
+        </a></td>
+        <td width="337" bgcolor="#CCCCCC"><color="#333333"><br />
+          <br />
+          <br />
+          <br />
+          <br />
+       São Paulo Transporte S/A<br />
+Rua Boa Vista, 236 - Centro - São Paulo/SP <br />
+CEP: 01014-000<br />
+<br />
+<br />
+</td>
+        <td width="181" bgcolor="#CCCCCC"><color="#333333"><br />
+          <br />
+        Telefone<br />
+        Central 156 
+        </p>        
+        </span></td>
+        <td width="29" bgcolor="#CCCCCC"><a href="https://www.instagram.com/sptransoficial/"><img src="/img/layout/botaoinstagrammini.png" border="0" longdesc="https://www.instagram.com/sptransoficial/" /></a></td>
+        <td width="35" bgcolor="#CCCCCC"><a href="http://bilheteunico.sptrans.com.br/"><img src="/img/layout/bumini.png" border="0" longdesc="http://bilheteunico.sptrans.com.br/" /></a></td>
+        <td width="35" bgcolor="#CCCCCC"><a href="http://www.youtube.com/sptranssp"><img src="/img/layout/botao-youtubemini.png" border="0" longdesc="https://twitter.com/sptrans_" /></a></td>
+        <td width="35" bgcolor="#CCCCCC"><a href="https://www.facebook.com/SPTransOficial/"><img src="/img/layout/facebookmini.png"  border="0" longdesc="https://www.facebook.com/SPTransOficial/" /></a></td>
+        <td width="40" bgcolor="#CCCCCC"><a href="https://twitter.com/sptrans_"><img src="/img/layout/twittermini.png" border="0" longdesc="https://twitter.com/sptrans_" /></a></td>
+      </tr>
+</table>
+	  <table width="1000" height="35" border="0" class="style21" accesskey="2">
+      <tr >
+        <td width="573" height="31" bgcolor="#666666" >&nbsp;<color="#c2c4c4">&nbsp;Prefeitura de São Paulo - Viaduto do Chá, 15 - Centro - São Paulo, SP - CEP 01002-020 </span></td>
+        <td width="10" bgcolor="#666666">&nbsp;</td>
+        <td width="410" bgcolor="#666666"><p align="center"><color="#c2c4c4">&copy;2017 São Paulo Transporte S/A | <a href="/privacidade/" class="style21">Política de Privacidade </a></span></p>    </td>
+      </tr>
+</table>
+</div>
+	<!-- Include Header -->
+</div>
+</form></body>
+</html>

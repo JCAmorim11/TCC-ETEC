@@ -1,0 +1,241 @@
+﻿$().ready(function () {
+    var onCPFfocus;
+
+    $('*[original-title]').tipsy({
+        gravity: 'n',
+        fade: true,
+        html: true
+    });
+    $('#lstUsuarios').tipsy({
+        gravity: 'w',
+        fade: true,
+        html: true,
+        fallback: '<b>Exibe todos os usuários cadastrados no sistema.</b><br/><br/>Digite parte do nome ou documento de identificação do usuário para que a lista seja apresentada'
+    });
+
+    //*** MASCARAS DE PREENCHIMENTO
+
+    //	Solução de Pedro Elsner para tratamento de 9º dígito para celulares em São Paulo
+    //	http://pedroelsner.com/2012/07/mascara-jquery-para-novo-digito-de-celular-em-sao-paulo/
+    $('INPUT[mask=FONE]').focusout(function () {
+        var phone, element;
+        element = $(this);
+        element.unmask();
+        phone = element.val().replace(/\D/g, '');
+        if (phone.length > 10) {
+            element.mask("99999-999?9");
+        } else {
+            element.mask("9999-9999?9");
+        }
+    }).trigger('focusout');
+
+    //-- Máscaras de preenchimento
+    $('INPUT[mask=NUMERIC]').bind('keyup keydown', function (e) { onlyNumbers($(this)); });
+    $('INPUT[mask=CPF]').mask('999.999.999-99');
+    $('INPUT[mask=CNPJ]').mask('99.999.999/9999-99');
+    $('INPUT[mask=DATA]').mask('99/99/9999');
+    $('INPUT[mask=CONTRATO]').mask('9999/9999-99-99');
+    $('INPUT[mask=TEXT]').bind('keyup keydown', function () { onlyWords($(this), true); });
+
+    //-- Tratamento de evento de click nos campos de formulário para selecionar seu conteúdo
+    $('INPUT[mask!=""]:[mask]').map(function () {
+        $(this).bind('click', function () { $(this).select(); });
+    });
+
+    $('INPUT[mask=EMAIL]').bind('blur', function (e) {
+        if ($(this).val() != "") {
+            if (!mailValidate($(this).val())) {
+                $(this)[0].setAttribute('original-title', 'O endereço de e-mail informado não é válido. Exemplo: nome@dominio.com.br');
+                $(this).focus();
+            } else {
+                $(this)[0].setAttribute('original-title', '');
+            }
+
+            $(this).tipsy();
+        }
+    });
+
+    $('INPUT[mask=EMAIL], INPUT[mask=DATA], INPUT[mask=CPF], INPUT[mask=CNPJ]').map(function () {
+        $(this).tipsy({ trigger: 'focus', gravity: 'w' });
+    });
+
+    $(".tipoDocPF").bind('change', function () {
+        var doc = $(".frmDev_pf_doc");
+        doc.val('');
+
+        switch ($(this).val()) {
+            case "0"://CPF
+                doc.mask('999.999.999-99');
+                doc.bind('blur', onCPFblur);
+                break;
+            default://outros documentos sem validação
+                doc.unmask();
+                doc.unbind('blur', onCPFblur);
+                break;
+        }
+    });
+
+    $("INPUT[mask=CNPJ]").bind('blur', function (e) {
+        if (!isCnpj($(this).val())) {
+            $(this).val('');
+            $(this).tipsy({ trigger: 'manual', gravity: 'w', fallback: "CNPJ inválido" });
+            $(this).tipsy('show');
+            $(this).focus();
+        } else {
+            $(this).tipsy('hide');
+        }
+    });
+
+    $(".docContent_overview #boxCadastro").bind('click', function () {
+        document.location = "/desenvolvedores/Cadastro.aspx";
+    });
+    $(".docContent_overview #boxMeusApps").bind('click', function () {
+        document.location = "/desenvolvedores/Perfil.aspx";
+    });
+    $(".docContent_overview #boxDocs").bind('click', function () {
+        document.location = "/desenvolvedores/APIOlhoVivo/Documentacao.aspx?1";
+    });
+
+    onCPFblur = function (e) {
+        if (!isCPF($(e.currentTarget).val())) {
+            $(e.currentTarget).val('');
+            $(e.currentTarget).tipsy({ trigger: 'manual', gravity: 'w', fallback: "CPF inválido" });
+            $(e.currentTarget).tipsy('show');
+            $(e.currentTarget).focus();
+        } else {
+            $(e.currentTarget).tipsy('hide');
+        }
+    };
+
+    $("#btClosePop").click(function () {
+        $("#formRecoveryPass").hide();
+        return false;
+    });
+
+    $("#btnRecoveryPass").click(function () {
+        event.stopPropagation();
+        event.preventDefault();
+
+        var formRecoveryPass = $("#formRecoveryPass");
+        formRecoveryPass.show().offset({ left: event.pageX - 50, top: event.pageY - 50 });
+    });
+
+    $("#btRequestNew").click(function () {
+        var login = $("#fLogin"),
+            email = $("#fMail");
+
+        login.removeClass("fieldError");
+        email.removeClass("fieldError");
+
+        if (!login.val().length) {
+            login.addClass("fieldError");
+
+            event.preventDefault();
+            return false;
+        } else {
+            if (!email.val().length) {
+                email.addClass("fieldError");
+
+                event.preventDefault();
+                return false;
+            }
+        }
+
+        $(this).parent().append("<div class='imgCarregando'/>");
+    });
+});
+
+
+function onlyNumbers(o) {
+    var v = o.val();
+
+    o.val(v.replace(/[^0-9]/, ''));
+}
+
+function onlyWords(o, includeSpecialChar) {
+    var v = o.val();
+
+    if (includeSpecialChar) o.val(v.replace(/[^\sA-zÀ-ú&.\-]/, ''));
+    else o.val(v.replace(/[^A-z]/, ''));
+}
+
+function cleanAccent(c) {
+    var valor = c.val();
+    c.val(valor.replace(/[^0-9A-z]/, ''));
+}
+
+function mailValidate(val) {
+    var r = new RegExp(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/gi);
+    return r.test(val);
+}
+
+/*
+Método para validação de CNPJ.
+Aceita código CNPJ somente numérico ou com as devidas pontuações.
+*/
+function isCnpj(cnpj) {
+    var numeros, digitos, soma, i, resultado, pos, tamanho, digitos_iguais;
+    if (cnpj.length == 0) {
+        return false;
+    }
+
+    cnpj = cnpj.replace(/\D+/g, '');
+    digitos_iguais = 1;
+
+    for (i = 0; i < cnpj.length - 1; i++)
+        if (cnpj.charAt(i) != cnpj.charAt(i + 1)) {
+            digitos_iguais = 0;
+            break;
+        }
+    if (digitos_iguais)
+        return false;
+
+    tamanho = cnpj.length - 2;
+    numeros = cnpj.substring(0, tamanho);
+    digitos = cnpj.substring(tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+            pos = 9;
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != digitos.charAt(0)) {
+        return false;
+    }
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0, tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2)
+            pos = 9;
+    }
+
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+
+    return (resultado == digitos.charAt(1));
+}
+
+/* Função JS para validação de CPFs
+- John Murowaniecki
+http://twitter.com/jmurowaniecki
+***************
+Adaptado por Rafael Leite Antonio - SPTrans, em 30/11/2011
+*/
+function isCPF(_cpf) {
+    var cpf = _cpf.replace(/\D+/g, '');
+    if (cpf.length != 11 || cpf.replace(eval('/' + cpf.charAt(1) + '/g'), '') == '') {
+        return false;
+    }
+    else {
+        for (n = 9; n < 11; n++) {
+            for (d = 0, c = 0; c < n; c++) d += cpf.charAt(c) * ((n + 1) - c);
+            d = ((10 * d) % 11) % 10;
+            if (cpf.charAt(c) != d) return false;
+        }
+        return true;
+    }
+}

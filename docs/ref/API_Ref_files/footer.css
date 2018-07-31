@@ -1,0 +1,103 @@
+/* CSS Document */
+
+#footer { position: relative;  background: url(/img/layout/back_footer.jpg) repeat-x; margin-top:5px; }
+#footer img { float: left; padding-top: 15px; }
+	#footer ul:first-child	{  padding: 0 20px 0 50px !important ;}
+	#footer ul { padding: 1.5em 0 5.5em 0; float: left; font-size: 100%; color: #999999; height: 5.1em; }
+	#footer ul li a { color: grey; font-weight: bold; text-decoration: none; }
+	#footer ul li { line-height: 1.6em; position:relative; margin: 0 0 5px 0; list-style: disc;}
+	#footer ul#linkArea1,#footer ul#linkArea2, #footer ul#linkArea3, #footer ul#linkArea4, #footer ul#linkAreab, #footer ul#linkAreac   { width: 120px; padding: 0 20px;}	
+
+	
+	
+	.img_footer{padding-top: 28px; padding-left: 10px; padding-right: 5px;}
+	
+	#footer #copyRight { height: 9.3em; }
+		#footer #copyRight img { margin-left: 40px; }
+		#footer #copyRight #textoCopy { float: right; color: #FFF; font-weight: bold; padding-top: 4.2em; }
+			#footer #copyRight #textoCopy a { text-decoration: none; color: #FFF; padding-right: 50px; }
+			
+                        #bodyItinerario .detalheLinhaPop #footer { width: 756px; float: left; height: auto; }
+                        #sptransUnicoDetalhes { float: right!important; margin-right: 29px;}
+                        
+    #footer .respostaCadastro { color: #cc0000; font-weight: bold; text-transform: uppercase; }
+
+    #aboutJanela { position: absolute; top: -25px; left: 800px ; background: url(/img/layout/overFooter.gif); width: 131px; height: 55px; z-index: 999; padding: 3px 10px; color: #FFF; }
+
+	
+	#asp{
+	display: none;
+	
+	}
+	
+	
+/***********************/	
+/* Jquery asmselect - CSS */
+/***********************/
+
+.asmContainer {
+	/* container that surrounds entire asmSelect widget */
+}
+
+.asmSelect {
+	/* the newly created regular 'select' */
+	display: inline; 
+}
+
+.asmOptionDisabled {
+	/* disabled options in new select */
+	color: #999; 
+}
+
+.asmHighlight {
+	/* the highlight span */
+	padding: 0;
+	margin: 0 0 0 0;
+}
+
+.asmList {
+	/* html list that contains selected items */
+	margin: 0.28em 0 1em 0.8em; 
+	position: relative;
+	display: block;
+	padding-left: 0; 
+	list-style: none; 
+}
+
+.asmListItem {
+	/* li item from the html list above */
+	position: relative; 
+	margin-left: 29px;
+	padding-left: 5px;
+	list-style: none;
+	background: #CC0907;
+	color: #FFF;
+	border: 0px solid #CCC; 
+	width: 200px;
+	margin: 0 0 5px 65px;
+	line-height: 1em;
+}
+
+.asmListItem:hover {
+	background-color: #DD1508;
+}
+
+.asmListItemLabel {
+	/* this is a span that surrounds the text in the item, except for the remove link */
+	padding: 5px; 
+	display: block;
+}
+
+.asmListSortable .asmListItemLabel {
+	cursor: move; 
+}
+
+.asmListItemRemove {
+	/* the remove link in each list item */
+	position: absolute;
+	right: 0; 
+	top: 0;
+	padding: 5px; 
+}
+
+

@@ -1,0 +1,481 @@
+/* CSS Document */
+
+#pageTitle { float:left; margin-left: 20px; display:inline; color: #grey; font-size:15px; font-family:Arial, Helvetica, sans-serif; font-weight: bold;}
+
+#resize{margin-right: 20px; }
+.fontResize { float: right; margin: 0px 2px 0 5px; color:#ccc}
+.fontResize1 { float: right; margin: 0px -3px 0 5px; color:#ccc }
+#coSac, .busca { color: #grey; text-decoration: none; top: -0.1px; float: right; display: inline; font-size: 118%; margin-right: 15px; }
+#coSac { width: 154px;}
+#acessivel { top: -1.4em; left: 621px; width: 98px;}
+#english { top: -2.7em; left: 738px; width: 38px; display:inline}
+.busca { padding-left: 5px; border-left: 2px solid #grey; height: 1.4em; }
+
+#busca {float: right; width: 100px; height: 1.6em; padding: 2px; border: 0px; border-top: 1px solid #abadb3; margin-right: 4px; margin-top: -3px; display:inline}
+#comitProcura {float: right; display:inline; background: url(/img/button/setaVermelhahome.gif) no-repeat top left; width: 20px; height: 20px; border: 0px solid #ffffff; cursor: pointer; margin-right: 10px; margin-top: -3px}
+
+/*#pontoInteresse .erro { color:#CC0000 }*/
+
+
+#headerLvl1 {
+	height: 110px;
+	width:100%;
+	position: relative;
+	background: #e2e4e4;
+	overflow: hidden;
+	text-decoration: none;
+    color: grey;
+}
+
+.style21 {
+	height: 3.1em;
+	width:100%;
+	position: relative;
+	background: #666666;
+	overflow: hidden;
+	text-decoration: none;
+    color: #c5c4c4;  
+		
+}
+
+.style22 {
+	height: 3.1em;
+	padding-top:1.1em;
+	width:100%;
+	position: relative;
+	background: #CCCCCC;
+	overflow: hidden;
+	text-decoration: none;
+    color: grey;  
+		
+}
+
+#headerLvl2 {
+	height: 194px;
+	width: 100%;
+	overflow: hidden;
+	
+
+}
+
+hr {
+    padding-bottom: 5px;
+	margin-top: -17px;
+	color: #e8f1f3;
+	background-color: #F2F4F5;
+	height: 7px;
+	border: none;
+	
+}
+
+#linhaHeaderNova span {
+    display: none;
+}
+
+    #headerLvl2 img {
+	    background-color: #FFF;
+	    padding: 40px 27px 3.8em 29px;
+	    float: left;
+    }
+
+    #headerLvl2 #mnuProcuraHeader {
+        width: 1000px;
+        height:170px;
+	    padding: 0em 0 0 0px;
+	    float: right;
+    	background: url(/img/layout/back_busca.jpg) repeat-x;
+    	
+    }
+    
+    #headerLvl2 form {
+	    height: 11.6em;
+	    clear: both;
+    }
+	        
+        #headerLinks { display: block; height:15px; width: 100%;  margin-bottom: 7px; }
+        
+        #headerLinks ul {padding:0px; margin:0px; float: right;	width: 800px; font-family: /*testaFonte,*/ Arial, sans-serif; background: url(../img/layout/bkg_menu.jpg) repeat-x;	list-style:none;}
+		#headerLinks ul li { display: inline; }
+		#headerLinks  a{ background: url(../img/layout/bkg_menu.jpg) repeat-x; color: #000; text-decoration: none; padding: 11px 55px; float:left; 
+						font-size: 150%;font-weight: bold;}
+		#headerLinks a:hover {background: #fff;	color: #000;}
+		#headerLinks a:active { background: #fff; color: #000;}
+
+       /* #headerLinks a { float: left; color: #999; border-right: 1px solid #999; padding: 0 13px; }*/
+       /* #headerLvl2 a.headerAtivo {text-transform: uppercase; font-weight: bold; color: #CC0000; text-decoration: none; } */
+       /* #headerLvl2 .fazerTrajeto { text-align: left; display: block; padding-left: 0;} */
+       /* #headerLvl2 .encontreLinha { text-align: center; display: block; } */
+      /*  #headerLvl2 .encontreLocal { text-align: right; display: block; border-right: 0 none; } */
+       /* #headerLvl2 .linkRoteiros { border: 0; } */
+        #headerLinks select { width:155px; height:20px; float: right; margin-right: 3.4em; }
+	
+        label.lblProx { float: left; display: block; text-transform: uppercase; font-weight: bold; position:relative; width: 188px;}
+		label.origemNo, label.destinoNo, label.lblProxNo, label.labelNumeroNomeLinha { position: relative; text-transform: uppercase; font-weight: bold; }
+		#contentLocal input#proximidade { width: 176px; height: 2em; position: relative; border: 0px; border: 1px solid #abadb3; margin-bottom: .2em; }
+		
+		labelForProcura { clear: both; display: block; }
+        input#origem, input#destino, input.origemNo, input.destinoNo, input#noProximoAo { height: 18px; left: 0; margin: 0;border: 0px; border: 1px solid #abadb3 }
+		input#origem, input#destino {width: 140px;}
+		input#origem { margin-left: -1px;}
+		label.origem, label.destino, label.origemNo, label.destinoNo, label.labelNumeroNomeLinha { display: table; float: left; text-transform: uppercase; font-weight: bold; }
+		label.origem { width: 212px;}
+		label.destino { width: 212px;}
+		label.origemNo { width: 75px; }
+		input.origemNo, input.destinoNo, input#noProximoAo { width: 30px; }
+		#headerLvl2 #commitConsulta	{ margin-top:108px}
+		
+		.ajudaHold {clear:both}
+			.ajudaHold a, .ajudaHold span {float:left; display:inline; margin: 0; }
+			.btFavoritosHeader {margin-bottom:15px; margin-right:43px}
+			.spacerHeader {width:45px}
+		
+		input.erro { background:#CC0000; border-top-color:#890000!important; color: #FFF; }
+		select.erro { background:#CC0000; border-top-color:#890000!important; color: #FFF; }
+				
+		ul#origemBusca, ul#destinoBusca { float: left; margin: 0 20px 0 0; display:inline; padding:0 }
+		ul#destinoBusca { margin-right: 18px; }
+		
+		
+		
+		
+		    li#optTransporte {padding-top:0; clear:both; clear:both}
+		    li#optTransporte strong { margin-right:14px; float:left; padding-top: 0; }
+		    li#optTransporte input { margin: 0 5px 0 0; padding: 0; width:35px; height:1.8em; overflow:hidden; vertical-align: -1px; }
+		    li#optTransporte span {display:block; float:left}
+				li#optTransporte span.border-bot {height:7px; border-bottom:1px solid #bfbfbf; clear:both; display:block; width:528px; overflow:hidden; float:left; margin-bottom:8px}
+            ul#origemBusca .meusFavoritos, ul#destinoBusca .meusFavoritos { font-weight: bold; }
+			
+			.naoUtilizarHold {width:193px; float: left;}
+			.considerarHold {white-space:nowrap}
+		ul#destinoBusca select { position: relative; width: 106px; height: 1.8em; /*top: .7em; *top: .8em; */border: 0px; border: 1px solid #abadb3; }
+		/* A linha abaixo é diferente em header_ie.css */
+		ul#destinoBusca select { top: .7em; }		
+		
+		ul#destinoBusca #adcionarFavoritos { position: relative; top: .6em; }
+		
+		#headerLvl2 .buscaAvancada { 
+			position: absolute;
+			text-decoration: none;
+			font-weight: bold;
+			text-transform: uppercase;
+			display: inline;
+			text-align: right;
+			padding-left: 15px;
+			background: url(/img/layout/bgAvancada.gif) no-repeat left bottom;
+			top: 138px;
+			left: 895px;
+		}
+		
+        #contentLocal .buscaAvancada, #contentLinha .buscaAvancada { height: 3.1em; margin-top: -0.3em; }
+        #contentLinha input#noNome { height: 2em; width: 382px; border: 0px; border: 1px solid #abadb3; }
+        #contentLinha input#nomeLog { height: 2em; width: 240px; border: 0px; border: 1px solid #abadb3; }
+        #contentLinha input#numDeLog { height: 2em; width: 56px; border: 0px; border: 1px solid #abadb3; }
+        #contentLinha input#numParaLog { height: 2em; width: 56px; margin-left: 12px; border: 0px; border: 1px solid #abadb3; }
+        #contentLocal input#proximidade { width: 446px; }
+        label.lblProx { width: 450px;}
+        label.lblProx a {top: -2px; left: 82px;}
+        label.lblProxNo { width: 30px;}
+        label.labelNumeroNomeLinha a.btnQuerAjuda {position: absolute; top: 75px; left: 424px;}
+        #contentLinha { padding-left: 14px; }
+        #contentLocal { padding-left: 14px; }
+        label#lableNomeLog {padding-left: 12px;}
+        #contentLocal label, #contentLinha label { font-weight: bold; text-transform: uppercase; }
+        #contentLocal a, #contentLinha a {/* float: right; margin: 1.4em 29.8em 0 0; _margin: 13px 120px 0 0; padding: .3em 0 0 23px; background: url(/img/button/setaVermelha.gif) no-repeat; display: block; height: 2.2em; text-decoration: none;*/ }
+        #contentLocal .tipoReferencia, #contentLinha .tipoReferencia { margin-top: 10px;}
+        .tipoReferencia {margin-bottom: 20px;}
+        .tipoReferencia input { vertical-align: -3px; margin: 0 2px 0 15px; }
+			.tipoReferencia input#checkTerminais {margin: 0 2px 0 0px;}
+        .tipoReferencia select {margin-left: 15px; width: 100px; }
+        .tipoReferencia span { margin-right: 2.2em;}
+
+        #headerLvl2 #confiraLocais { float: right; }
+
+    
+    /*Busca Avançada*/
+        
+        #buscaAvancadaContet {
+            position: absolute;
+            top: 179px;
+            left: 238px;
+            background-color: #ffffff;
+            font-size: 107%;
+            margin: 30px;
+            margin-bottom: 0px;
+            border-bottom: 0;
+            z-index: 100;
+            height: 15em;
+            overflow: hidden;
+            width: 712px;
+            display: none;
+        }
+        
+        #bodyItinerario #buscaAvancadaContet { /*display: block;*/ }
+        
+        #parametrosPesquisaTrajeto, #parametrosPesquisaLinha, #parametrosPesquisaLocal {
+                margin: 1.7em 20px;
+                border-top: 1px solid #c1c1c1;
+                width: auto;
+                padding: 2em 0 0 0!important;
+                color: #333;
+                font-size: 90%;
+                position:relative;
+				/*_width: 670px;*/
+				/* A linha abaixo é diferente no header_ie.css */
+				width: 670px;				
+                display: block;
+        }
+        
+        #parametrosPesquisaLocal {width:670px}
+        
+        
+        #parametrosPesquisaTrajeto ul { float: left; padding-bottom: 2.4em; }
+        
+        #parametrosPonto { width: 115px; overflow: hidden; }
+        #parametrosDia { width: 120px; overflow: hidden; float:left;}
+        #parametrosHorario { width: 170px; overflow: hidden; float:left }
+        #parametrosTrajeto { width: 140px; overflow: hidden; float:left }
+		#parametrosPriorizar { width: 150px; overflow: hidden; float:left; }
+		
+        
+		#parametrosDia li{margin-bottom: 4px;}
+		#parametrosPriorizar li{margin-bottom: .4em; height: 1.7em;}
+        #parametrosTrajeto li{ margin-bottom: .5em;  }
+		#parametrosPonto li,
+	    
+		#parametrosHorario li { margin-bottom: .5em; clear: both; position: relative;}
+        #parametrosPonto li input { vertical-align: -2px; }
+
+        #parametrosTrajeto li { font-weight: bold; }
+		
+		#parametrosHorario li a {left: 135px;}
+		#parametrosTrajeto li a {left: 80px;}
+		#parametrosPriorizar li a {left: 60px;}
+
+        #parametrosHorario { padding: 0;}
+                #parametrosHorario li { margin-bottom: .4em; height: 1.7em;}
+                #parametrosHorario span {display: block; float: left; text-align: left; }
+                #parametrosHorario input {border: 1px solid #abadb3; margin: 0 5px 0 5px; padding: .2em 2px; height: 1.2em; line-height: 1.3em; float: left; }
+                #parametrosTrajeto input { width: 200px;  border: 1px solid #abadb3; margin: -1px 5px 0 5px; padding: 1em 2px; height: 1.1em; line-height: 1.8em; float: left; }
+                
+                #parametrosHorario strong,
+                #parametrosTrajeto strong { /*font-size: 64%*/ }
+
+                #parametrosHorario a { float: left;}
+                
+				#parametrosHorario select { width: 70px; margin: 0px 5px -1px 0; }
+				#parametrosPriorizar select { width: 70px; margin: 0px 5px -5px 0; }
+				#parametrosDia select { width: 70px; margin: 4px 5px -1px 0; }
+            
+                #parametrosTrajeto .distancia { color: #cc0000; }
+				#parametrosPriorizar .btnQuerAjuda { margin: 255px 0 0 780px; }
+                #parametrosHorario .btnQuerAjuda { margin: -15px 0 0 -1px; }
+				 #parametrosTrajeto .btnQuerAjuda { margin: 255px 0 0 630px; }
+                .commitItinerario { float: left; margin: 1.3em 0 0 7px; }
+                
+				.ui-datepicker-trigger {padding:0 !important}
+    
+        #parametrosPesquisaLinha, #itinerarios #parametrosPesquisaLocal { padding-top: .7em; height: 11.1em; }
+        
+        #parametrosPesquisaLinha { display: none; }
+        #parametrosPesquisaLocal { display: none; }
+        
+#parametrosPesquisaLinha label, #parametrosPesquisaLocal label { 
+                text-transform: uppercase;
+                font-weight: bold;
+                margin-right: 8.6em;
+        }
+        
+        #parametrosPesquisaLocal label { margin-right: 105px;}
+        
+        #parametrosPesquisaLocal ul {
+            float: left;
+        }
+        
+        #parametrosPesquisaLinha select, #parametrosPesquisaLocal input {
+                padding-left: 12px;
+                width: 166px;
+                height: 2em;
+                margin-right: 22px;
+        }
+        
+        #parametrosPesquisaLinha select { height: 2.2em; }
+        #parametrosPesquisaLocal input { width: 162px; margin-right: 27px; padding-left: 0!important; }
+        #parametrosPesquisaLocal input.passePor {left:0}
+        
+        #parametrosPesquisaLinha a, #parametrosPesquisaLocal a {
+                float: right;
+                margin: -2.3em 213px 0 0;
+                padding: .4em 0 0 23px;
+                background: url(/img/button/setaVermelha.gif) no-repeat;
+                display: inline;
+                height: 2.2em;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #333;
+                text-decoration: none;
+        }
+		
+		.btQuerAjudaHeader {font-size:110%;}
+		#contentLinha .btQuerAjudaHeader {display:block; margin-left:322px; width:100px}
+		#contentLocal .btQuerAjudaHeader {display:block; margin-left:418px; width:100px}
+        
+        #parametrosPesquisaLocal a { margin: 1.6em 0 0 0; float: left; }
+
+    #commitEnviarLinha  { margin: 0; /*vertical-align: -8px; *vertical-align: 0;*/ }
+	/* A linha abaixo é diferente em header_ie.css*/
+	#commitEnviarLinha  { margin: 0; vertical-align: -8px; }
+	#commitEnviarLocal { margin: 15px 0px 0px 0px;}
+    #contentTrajeto, #contentLinha, #contentLocal { display: block; margin-top: 25px;  }
+    #commitEnviarLinhaCompleta, #commitEnviarLocalCompleta { width: 86px!important; height: 20px!important; margin: 13px 0 0 0!important; }
+    /*#commitEnviarLocalCompleta { vertical-align: -8px; left: 0; *vertical-align: 0; }*/
+	/* A linha abaixo é diferente em header_ie.css*/
+	#commitEnviarLocalCompleta { vertical-align: -8px; left: 0; }
+    #commitEnviarLinhaCompleta { left: 370px!important; }
+    #proximoAoNumLabel1 { margin-right: 60px!important; }
+    #contentTrajeto { display: block; }
+    #contentLinha { display: none; }
+    #contentLocal { display: none; }
+    
+    .zero { height: 1px!important; display: block!important; }
+    #ui-datepicker-div{z-index:100;}
+    
+    #aboutAcessibilidade { position: absolute; top: 32px; left: 850px ; background: url(/img/layout/overHeader.gif); width: 81px; height: 25px; z-index: 999; padding: 18px 10px; color: #FFF; }
+    .aboutThis { display: none; }
+	
+	.boxQuerAjuda {width:630px; position:absolute; top:90px; left:268px; background:#999999 url(/img/layout/bg-querajuda.gif) repeat-x; z-index:100; display:none;}
+		.boxQuerAjuda .btFecharAjuda {width:20px; height:20px; background:url(/img/button/bt-fechar-ajuda.gif) no-repeat; text-indent:-1000px; display:block; overflow:hidden; float:right; margin:5px 7px 0 0}
+		.querajuda  {width:114px; height:29px; background:url(/img/title/txt_querajuda.gif) no-repeat; text-indent:-1000px; display:block; overflow:hidden; float:left}
+		.boxQuerAjuda .definirFaixa {width: 177px; height:29px; background:url(/img/title/h4-definirFaixa.gif) no-repeat; text-indent:-1000px; display:block; overflow:hidden; float:left}
+		.boxQuerAjuda .querAndar {width: 121px; height:39px; background:url(/img/title/h4-querAndar.gif) no-repeat; text-indent:-1000px; display:block; overflow:hidden; float:left; z-index: 1000000;}
+		.boxQuerAjuda .priorizar {width: 199px; height:29px; background:url(/img/title/h4-priorizar.gif) no-repeat; text-indent:-1000px; display:block; overflow:hidden; float:left}
+		.boxQuerAjuda div {padding:10px 20px; clear:both}
+			.boxQuerAjuda div p {color:#fff; margin-bottom:10px}
+		
+	.btQuerAjudaHeader2, .btQuerAjudaHeader3{ display:block; width: 70px; }
+		#ajudaDe{margin: 0 0 0 133px; }
+		#ajudaPara{margin: 0 0 0 133px; }
+		.btQuerAjudaHeader2{margin: 0 0 0 417px; }
+		.btQuerAjudaHeader3{margin: 0 0 0 320px; }
+	
+	
+	
+/* MARINA */
+
+.box580x81 {width: 563px; height: 10px; padding: 15px 9px 0px 1px; margin-right: 24px; line-height: 15px;  color: #000000; font-size: 110%; font-family: /*testaFonte,*/ Arial, sans-serif; position: relative; float: left; padding-left:14px; display: none; }
+	h4.h4buscaAvancada {width: 104px; height: 13px; background: url(../img/itinerario/layout/h4-buscaAvancada.gif); text-indent: -99999px; overflow: hidden; display: block;}
+	a.btnCliqueAquiBusca {width: 200px; height: 20px;  overflow: hidden; display: block; float: left; text-decoration:none; font-size: 150%; }
+	input.btnConsultarItinerario {width: 97px; height: 36px; display: block; float: left; border: 1px solid;}
+.buscaAvancadaMa {width: 580px; margin-right: 24px; float: left; padding-left: 150px; }
+	a.btnQuerAjuda {width: 16px; height: 15px; background: url(../img/itinerario/button/btn-querAjuda.png); text-indent: -99999px; overflow: hidden; display: block; position: absolute; top: 15px; left: 134px;}
+	
+.box700x60 {width: 710px; height: 60px; position: relative; padding-left:150px; padding-right:14px; }
+.box700x60 .left {width: 315px; position: relative; float: left;}
+.box700x60 .right {width: 315px; position: relative; float: left; }
+	ul.listTrajeto {width: 350px; list-style: none; }
+	ul.listTrajeto li {float: left;}
+	ul.listTrajeto li label {font-size: 100%; font-weight: bold; text-transform: uppercase; position: relative;}
+	ul.listTrajeto li label {font-size: 100%; font-weight: bold; text-transform: uppercase; position: relative;}
+		label.labelOrigem {width: 50px; padding-bottom: 10px;}
+		label.labelOrigem a.btnQuerAjuda {top: -2px; left: 20px;}
+		label.labelDestino {width: 50px;}
+		label.labelDestino a.btnQuerAjuda {top: -2px; left: 35px;}
+	ul.listTrajeto li select {width: 110px; height: 19px;}
+	ul.listTrajeto li input {height: 18px; border: none; border: 1px solid #ABADB3;}
+		input.endereco {width: 130px; }
+	ul.listTrajeto li.primeira {width: 125px;}
+	ul.listTrajeto li.segunda {width: 175px;}
+	ul.listTrajeto li.terceira {width: 30px;}
+
+.simpleLabel {font-weight: normal!important; text-transform: none!important}
+
+.box700x60 .contentCep, .box700x60 .contentCepDestino, .contentDestino {display: none;}
+.box700x60 .contentCep input, .box700x60 .contentCepDestino input {width: 90px; }
+.box700x60 .contentCep input.cepdigito, .box700x60 .contentCepDestino input.cepdigito {width: 50px;}
+
+.box700x60 .contentCruzamento, .box700x60 .contentCruzamentoDestino, .contentOrigem {display: none;}
+.box700x60 .contentCruzamento input, .box700x60 .contentCruzamentoDestino input {width: 80px; float: left;}
+.box700x60 .contentCruzamento span, .box700x60 .contentCruzamentoDestino span, .contentOrigem span {width: 15px; text-align: center; display: block; float: left;}
+.box700x60 .contentOrigem select {width: 175px; float: left;}
+.box700x60 .contentDestino select {width: 175px; float: left;}
+
+.box510x55 {width: 510px; height: 55px; position: relative;}
+.box510x55 .left {width: 255px; position: relative; float: left;}
+.box510x55 .right {width: 105px; position: relative; float: right;}
+
+#boxEnviarLinha {margin-top: -12px;}
+
+.margemSupForm-min {margin-top: 8px;}
+
+#segunda_content{width: 145px;}
+#segunda_content2{width: 145px;}
+#segunda_content3{width: 145px;}
+.segunda_cepOrigem_content{width: 100px!important;}
+
+.formDisabled
+{
+    background-color: #ebebe4;
+}
+
+
+	
+
+
+		
+		
+		#titulo_busca {
+			background: url(../img/layout/bkg_menu.jpg) repeat-x;
+			color: #000;
+			text-decoration: none;
+			padding-top: 11px;
+			padding-left: 150px;
+			padding-bottom: 11px;
+			padding-right: 50px;
+			float:right;			
+			white-space: nowrap;
+			
+		}
+		
+		#tit_busca{
+			font-size: 170%;
+			
+			font-family: /*testaFonte,*/ Arial, sans-serif;
+			float: right;
+	
+		}
+		
+		#btnConsultarItinerario{
+			float: right;
+			margin-top: 10px;
+	
+		}
+		
+		#avancada_busca{
+			width: 745px;
+		}
+		#td1{
+			width: 80px;
+		}
+		#td2{
+			width: 200px;
+		}
+		#td3{
+			width: 190px;
+		}
+		#td4{
+			width: 120px;
+		}
+		#td5{
+			width: 200px;
+		}
+		
+		.querajuda{}
+		
+		
+		
+	
+		
+		
+		
+		.colorred{color: #E4E1E1; text-decoration: none;}
+		.colorred a{color: #EE1C25; text-decoration: none;}
+		.colorred b{color: #646464; text-decoration: none;}
